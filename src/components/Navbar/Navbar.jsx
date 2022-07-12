@@ -1,21 +1,26 @@
-import "./Navbar.css"
+import {Link} from 'react-router-dom';
+
+
+import "./Navbar.css";
+import { Logo, MainNavbar, NavButton, NavContainer, NavItems } from "./NavbarStyles"
 
 
 
-const Navbar = () => {
+const Navbar = ({hides}) => {
     return (
-        <div className="navbar">
-            <div className="navContainer">
-                <div className="logo">
-                    Zubi
-                    <span>.com</span>
-                </div>
-                <div className="navItems">
-                    <button className="navButton">Register</button>
-                    <button className="navButton">Log in</button>
-                </div>
-            </div>
-        </div>
+        <MainNavbar>
+            <NavContainer>
+                <Link to="/">
+                    <Logo>
+                        mySpace
+                    </Logo>
+                </Link>
+                <NavItems>
+                    <Link to="register"><NavButton hides={hides}>Register</NavButton></Link>
+                    <Link to="signin"><NavButton hides={hides}>Log In</NavButton></Link>
+                </NavItems>
+            </NavContainer>
+        </MainNavbar>
     )
 }
 
